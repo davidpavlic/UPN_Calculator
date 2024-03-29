@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Reversed_Polnish_Notation.iml" filepath="$PROJECT_DIR$/Reversed_Polnish_Notation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Reversed_Polish_Notation.iml" filepath="$PROJECT_DIR$/Reversed_Polish_Notation.iml" />
     </modules>
   </component>
 </project>
