@@ -4,7 +4,7 @@ import java.util.List;
 
 public class UPNCalculator {
 
-    public static int calculate(List<Character> characterList) {
+    public int calculate(List<Character> characterList) {
         MyStack upnStack = new MyStack();
         for (char character : characterList) {
             processCharacter(character, upnStack);
@@ -15,7 +15,7 @@ public class UPNCalculator {
         return upnStack.pop();
     }
 
-    public static int calculateSteps(List<Character> characterList){
+    public int calculateSteps(List<Character> characterList){
         MyStack upnStack = new MyStack();
         for (char character : characterList) {
             System.out.println("Characters to read: " + characterList);
@@ -34,7 +34,7 @@ public class UPNCalculator {
         return upnStack.pop();
     }
 
-    public static void processCharacter(char character, MyStack upnStack){
+    public void processCharacter(char character, MyStack upnStack){
         if (Character.isDigit(character)) {
             upnStack.push(Integer.parseInt(String.valueOf(character)));
         } else {
@@ -50,7 +50,7 @@ public class UPNCalculator {
         }
     }
 
-    public static boolean validate(List<Character> characterList) {
+    public boolean validate(List<Character> characterList) {
         MyStack myStack = new MyStack();
 
         for (char c : characterList) {
