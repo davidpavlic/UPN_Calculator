@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Write your calculation in UPN:");
@@ -13,7 +13,7 @@ public class Main {
         System.out.println("[1] to activate stepmode");
         String stepmode = scanner.next();
 
-        if(UPNValidator.validate(new LinkedList<>(inputList))){
+        if(UPNCalculator.validate(new LinkedList<>(inputList))){
             if(stepmode.equals("1"))
                 System.out.println(UPNCalculator.calculateSteps(new LinkedList<>(inputList)));
             else
@@ -25,7 +25,7 @@ public class Main {
 
     private static List<Character> retrieveInput(){
         List<Character> inputList = new LinkedList<>();
-        char[] inputChars = scanner.next().toCharArray();
+        char[] inputChars = scanner.nextLine().trim().toCharArray();
 
         for (char c : inputChars) {
             inputList.add(c);

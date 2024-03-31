@@ -3,6 +3,7 @@ package MyCollections;
 public class MyStack {
 
     private MyNode topNode = null;
+    private int size = 0; // Cache the size
 
     public MyStack(){
     }
@@ -11,19 +12,24 @@ public class MyStack {
         topNode = new MyNode(null, value);
     }
 
-    public void add(char ... values){
-        for(char value : values)
+    public void push(char ... values){
+        for(char value : values){
             topNode = new MyNode(topNode, value);
+            size++;
+        }
     }
 
-    public void add (int ... values){
-        for(int value : values)
+    public void push(int ... values) {
+        for (int value : values){
             topNode = new MyNode(topNode, value);
+            size++;
+        }
     }
 
     public int pop(){
         MyNode removedNode = topNode;
         topNode = removedNode.getPriorNode();
+        size--;
         return removedNode.getValue();
     }
 
@@ -31,15 +37,19 @@ public class MyStack {
         return topNode.getValue();
     }
 
+    public int size() {
+        return size;
+    }
+
     @Override
-    public String toString(){
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
         MyNode myNode = topNode;
-        String string = "";
-        while (myNode != null){
-            string = myNode.getValue() + " " + string;
+        while (myNode != null) {
+            stringBuilder.insert(0, myNode.getValue() + " "); // Prepend to the beginning
             myNode = myNode.getPriorNode();
         }
-        return string;
+        return stringBuilder.toString().trim(); // Remove trailing space
     }
 
 }
