@@ -1,5 +1,6 @@
 import MyCollections.MyStack;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class UPNCalculator {
@@ -17,15 +18,19 @@ public class UPNCalculator {
 
     public int calculateSteps(List<Character> characterList){
         MyStack upnStack = new MyStack();
+        List<Character> updatedCharacterList = new LinkedList<>(characterList);
+
         for (char character : characterList) {
-            System.out.println("Characters to read: " + characterList);
-            System.out.println("Current stack: " + upnStack);
+            System.out.println("Characters to read: " + updatedCharacterList);
+            System.out.println("Current stack: " + "[" + upnStack + "]");
             processCharacter(character, upnStack);
+
+            updatedCharacterList.remove(0);
 
             try{
                 Thread.sleep(1000);
             }catch(InterruptedException e){
-                System.out.println("No Sleep :(");
+                System.out.println("Issue while trying to sleep thread");
             }
         }
         if (upnStack.size() != 1) {
